@@ -47,7 +47,7 @@ export const Splash = (props: Pick<ComponentProps<"svg">, "ref" | "class">) => {
         letter-spacing="-0.5"
         fill="var(--icon-strong-base)"
       >
-        CyberStrike
+        RED-TEAM-V3
       </text>
     </svg>
   )
@@ -75,7 +75,7 @@ export const Logo = (props: { class?: string }) => {
         letter-spacing="-0.5"
         fill="var(--icon-strong-base)"
       >
-        CyberStrike
+        RED-TEAM-V3
       </text>
     </svg>
   )

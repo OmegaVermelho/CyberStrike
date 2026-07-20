@@ -28,7 +28,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.webp">
     <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.webp">
-    <img src="assets/hero-dark.png" alt="CyberStrike — open-source AI agent for offensive security" width="880">
+    <img src="assets/hero-dark.png" alt="RED-TEAM-V3 — open-source AI agent for offensive security" width="880">
   </picture>
 </p>
 

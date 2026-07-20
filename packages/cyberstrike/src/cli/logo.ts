@@ -1,27 +1,22 @@
 export const logo = [
-  "   ______      __              _____ __       _ __",
-  "  / ____/_  __/ /_  ___  _____/ ___// /______(_) /_____",
-  " / /   / / / / __ \\/ _ \\/ ___/\\__ \\/ __/ ___/ / //_/ _ \\",
-  "/ /___/ /_/ / /_/ /  __/ /  ___/ / /_/ /  / / ,< /  __/",
-  "\\____/\\__, /_.___/\\___/_/  /____/\\__/_/  /_/_/|_|\\___/",
-  "     /____/",
+  "  ____  _____ ____      _____ _____    _    __  __    __     _______ ",
+  " |  _ \\| ____|  _ \\    |_   _| ____|  / \\  |  \\/  |   \\ \\   / /___ / ",
+  " | |_) |  _| | | | |_____| | |  _|   / _ \\ | |\\/| |____\\ \\ / /  |_ \\ ",
+  " |  _ <| |___| |_| |_____| | | |___ / ___ \\| |  | |_____\\ V /  ___) |",
+  " |_| \\_\\_____|____/      |_| |_____/_/   \\_\\_|  |_|      \\_/  |____/ ",
+  "                                                                     ",
 ]
 
 // Palettes — used by CLI (non-TUI) colorize function
 export const palettes = {
-  matrix: ["#00ff41", "#008f11"],
+  "red-team": ["#ff0000", "#cc0000", "#ff3333", "#990000"],
   fire: ["#ff0844", "#ffb199"],
-  forest: ["#134e5e", "#71b280"],
-  ocean: ["#667eea", "#764ba2"],
-  sunset: ["#ff9966", "#ff5e62", "#ffa34e"],
-  dawn: ["#00c6ff", "#0072ff"],
-  nebula: ["#654ea3", "#eaafc8"],
-  gold: ["#f7971e", "#ffd200"],
-  purple: ["#667db6", "#0082c8", "#0078ff"],
-  mint: ["#00d2ff", "#3a7bd5"],
-  coral: ["#ff9a9e", "#fecfef"],
-  "grad-blue": ["#4ea8ff", "#7f88ff"],
-  mono: ["#f07178", "#f07178"],
+  blood: ["#8b0000", "#ff0000", "#ff4444"],
+  crimson: ["#dc143c", "#ff6b6b"],
+  inferno: ["#ff4500", "#ff6347", "#ff0000"],
+  rose: ["#e63946", "#ff6b6b"],
+  rust: ["#b7410e", "#ff4500"],
+  mono: ["#ff3333", "#ff3333"],
 } as const
 
 export type PaletteName = keyof typeof palettes
@@ -65,6 +60,5 @@ export function colorize(paletteName?: PaletteName): string[] {
 }
 
 export function randomPalette(): PaletteName {
-  const names = Object.keys(palettes) as PaletteName[]
-  return names[Math.floor(Math.random() * names.length)]
+  return "red-team"
 }
