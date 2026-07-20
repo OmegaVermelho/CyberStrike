@@ -70,6 +70,33 @@ npm i -g @cyberstrike-io/cyberstrike@latest && cyberstrike
 
 That's it. CyberStrike launches a TUI in your terminal, asks for your LLM provider and API key on first run, and you're ready to go. Tell it what to test — it handles reconnaissance, vulnerability discovery, exploitation, and reporting autonomously.
 
+### Global Install from Source
+
+If you prefer to run from source (no npm package), clone the repo and run directly with bun:
+
+```bash
+git clone https://github.com/CyberStrikeus/CyberStrike.git
+cd CyberStrike
+bun install
+bun run --cwd packages/cyberstrike --conditions=browser src/index.ts
+```
+
+To make it globally accessible, create a wrapper script in your PATH (e.g., `~/.bun/bin/` or `~/.local/bin/`):
+
+```bash
+# Using bun's bin dir (already in PATH after bun install)
+cat > ~/.bun/bin/cyberstrike << 'EOF'
+#!/usr/bin/env bash
+exec "$HOME/.bun/bin/bun" run --cwd /path/to/CyberStrike/packages/cyberstrike --conditions=browser src/index.ts "$@"
+EOF
+chmod +x ~/.bun/bin/cyberstrike
+
+# Optional: add a redteamv3 alias
+cp ~/.bun/bin/cyberstrike ~/.bun/bin/redteamv3
+
+cyberstrike
+```
+
 > **Already have a Claude Code or OpenAI subscription?** CyberStrike's intelligence layer sits on top of your existing AI subscription. No separate API costs — your current plan powers an entire pentest toolkit.
 
 Explore the full documentation at **[docs.cyberstrike.io](https://docs.cyberstrike.io)** or visit **[cyberstrike.io](https://cyberstrike.io)** for demos and guides.
