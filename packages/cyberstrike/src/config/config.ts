@@ -98,13 +98,13 @@ export namespace Config {
       },
       "cloud-audit": {
         type: "local",
-        command: ["npx", "-y", "cloud-audit-mcp"],
-        enabled: false,
+        command: ["bun", "run", "/home/deuzimar/Downloads/CyberStrike/packages/cloud-audit-mcp/src/index.ts"],
+        enabled: true,
       },
       hackbrowser: {
         type: "local",
-        command: ["npx", "-y", "hackbrowser-mcp"],
-        enabled: false,
+        command: ["bun", "run", "/home/deuzimar/Downloads/CyberStrike/packages/hackbrowser-mcp/src/index.ts"],
+        enabled: true,
       },
       // --- Tier 2: Extended Intelligence ---
       darknet: {
