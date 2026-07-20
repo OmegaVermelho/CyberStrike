@@ -62,40 +62,48 @@
 
 ---
 
-### Quick Start
+### Installation
+
+Choose your preferred method:
+
+#### Option 1: npm (prebuilt binary — recommended)
 
 ```bash
 npm i -g @cyberstrike-io/cyberstrike@latest && cyberstrike
 ```
 
-That's it. CyberStrike launches a TUI in your terminal, asks for your LLM provider and API key on first run, and you're ready to go. Tell it what to test — it handles reconnaissance, vulnerability discovery, exploitation, and reporting autonomously.
+All 11 built-in MCP servers connect automatically. Requires Node.js 18+ (for `npx`).
 
-### Global Install from Source
-
-If you prefer to run from source (no npm package), clone the repo and run directly with bun:
+#### Option 2: From Source (clone + bun)
 
 ```bash
 git clone https://github.com/CyberStrikeus/CyberStrike.git
 cd CyberStrike
 bun install
+```
+
+Run directly:
+```bash
 bun run --cwd packages/cyberstrike --conditions=browser src/index.ts
 ```
 
-To make it globally accessible, create a wrapper script in your PATH (e.g., `~/.bun/bin/` or `~/.local/bin/`):
-
+Or create a global command — replace `/path/to/CyberStrike` with your clone path:
 ```bash
-# Using bun's bin dir (already in PATH after bun install)
 cat > ~/.bun/bin/cyberstrike << 'EOF'
 #!/usr/bin/env bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 exec "$HOME/.bun/bin/bun" run --cwd /path/to/CyberStrike/packages/cyberstrike --conditions=browser src/index.ts "$@"
 EOF
 chmod +x ~/.bun/bin/cyberstrike
 
-# Optional: add a redteamv3 alias
+# Optional RED-TEAM-V3 alias
 cp ~/.bun/bin/cyberstrike ~/.bun/bin/redteamv3
 
 cyberstrike
 ```
+
+> **MCP servers:** After first run, enable them from the TUI (`/mcp list`) or pre-configure in `.cyberstrike/cyberstrike.jsonc` (see [MCP docs](https://docs.cyberstrike.io/mcp)). Requires `npx` (via Node.js) in PATH.
 
 > **Already have a Claude Code or OpenAI subscription?** CyberStrike's intelligence layer sits on top of your existing AI subscription. No separate API costs — your current plan powers an entire pentest toolkit.
 
