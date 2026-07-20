@@ -6,5 +6,16 @@
     }
   },
   "mcp": {
+    "github-security": { "enabled": true },
+    "cve": { "enabled": true },
+    "osint": { "enabled": true },
+    "cloud-audit": { "enabled": false },
+    "hackbrowser": { "enabled": false },
+    "darknet": { "enabled": true },
+    "dns-security": { "enabled": true },
+    "supply-chain": { "enabled": true },
+    "mcp-scanner": { "enabled": true },
+    "steganography": { "enabled": true },
+    "satellite": { "enabled": true }
   }
 }

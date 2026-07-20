@@ -14,6 +14,7 @@ import PROMPT_EXPLORE from "./prompt/explore.txt"
 import PROMPT_SUMMARY from "./prompt/summary.txt"
 import PROMPT_TITLE from "./prompt/title.txt"
 import PROMPT_WEB_APPLICATION from "./prompt/web-application.txt"
+import PROMPT_API_SECURITY from "./prompt/api-security.txt"
 import PROMPT_CLOUD_SECURITY from "./prompt/cloud-security.txt"
 import PROMPT_INTERNAL_NETWORK from "./prompt/internal-network.txt"
 import PROMPT_MOBILE_APPLICATION from "./prompt/mobile-application.txt"
@@ -443,6 +444,39 @@ export namespace Agent {
             azurehook: "allow",
             kubehook: "allow",
             cipipe: "allow",
+          }),
+          user,
+        ),
+        options: {},
+      },
+      "api-security": {
+        name: "api-security",
+        description:
+          "API security specialist. REST, GraphQL, gRPC, WebSocket — schema abuse, auth bypass, protocol-level attacks.",
+        mode: "subagent",
+        native: true,
+        color: "green",
+        prompt: `${PROMPT_METHODOLOGY_COMMON}\n\n${PROMPT_METHODOLOGY_CONTINUATION}\n\n---\n\n${PROMPT_API_SECURITY}`,
+        skills: ["wstg-apit-00", "wstg-apit-01", "wstg-apit-02", "attack-graphql", "attack-grpc"],
+        permission: PermissionNext.merge(
+          defaults,
+          PermissionNext.fromConfig({
+            question: "allow",
+            bash: "allow",
+            browser: "allow",
+            read: "allow",
+            glob: "allow",
+            grep: "allow",
+            webfetch: "allow",
+            websearch: "allow",
+            report_vulnerability: "allow",
+            triage_vulnerability: "allow",
+            add_intel: "allow",
+            update_vrt_check: "allow",
+            methodology_status: "allow",
+            scope_check: "allow",
+            ensure_tools: "allow",
+            attack_script: "allow",
           }),
           user,
         ),
